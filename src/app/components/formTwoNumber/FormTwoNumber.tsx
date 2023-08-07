@@ -14,7 +14,7 @@ interface FormComponentProps {
   errorMessage: '',
 }; */
 
-const Form: React.FC<FormComponentProps> = ({ onSub }) => {
+const FormTwoNumber: React.FC<FormComponentProps> = ({ onSub }) => {
     const [numbers, setNumbers] = useState<string>('');
     const [targetSum, setTargetSum] = useState<string>('');
   
@@ -46,4 +46,4 @@ const Form: React.FC<FormComponentProps> = ({ onSub }) => {
     };
     
 
-export default Form;
+export default FormTwoNumber;
