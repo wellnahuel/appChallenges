@@ -1,11 +1,11 @@
 // pages/index.tsx
 "use client"
 import React, { useState } from 'react';
-import { findPairWithSum } from '../../services/findPairWithSum';
+import { nonChange } from '../../services/nonChange';
 
 //defino interface para el tipo de los datos que ingreso al form
 interface FormComponentProps {
-    onSubSum: (numbers: number[], targetSum: number, result: number[]) => void;
+    onSubCoins: (coins: number[], result: number) => void;
   }
 
 /* const initialFormState: NumberFormState = { //defino estado inicial para usar en el estado acontinuacion
@@ -14,16 +14,16 @@ interface FormComponentProps {
   errorMessage: '',
 }; */
 
-const FormTwoNumber: React.FC<FormComponentProps> = ({ onSubSum }) => {
-    const [numbers, setNumbers] = useState<string>('');
-    const [targetSum, setTargetSum] = useState<string>('');
+const FormNonChange: React.FC<FormComponentProps> = ({ onSubCoins }) => {
+    const [coins, setCoins] = useState<string>('');
+    //const [targetSum, setTargetSum] = useState<string>('');
   
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      const numbersArray = numbers.split(',').map(Number);
-      const target = Number(targetSum);
-      const result = findPairWithSum(numbersArray, target);
-      onSubSum(numbersArray, target, result);
+      const coinsArray = coins.split(',').map(Number);
+     // const target = Number(targetSum);
+      const resultCoins = nonChange(coinsArray);
+      onSubCoins(coinsArray, resultCoins);
     };
 
     return (
@@ -31,19 +31,19 @@ const FormTwoNumber: React.FC<FormComponentProps> = ({ onSubSum }) => {
           <div>
             <label>
               Ingrese los números separados por comas:
-              <input type="text" value={numbers} onChange={(e) => setNumbers(e.target.value)} />
+              <input type="text" value={coins} onChange={(e) => setCoins(e.target.value)} />
             </label>
           </div>
-          <div>
+         {/*  <div>
             <label>
               Ingrese el número targetSum:
               <input type="text" value={targetSum} onChange={(e) => setTargetSum(e.target.value)} />
             </label>
-          </div>
+          </div> */}
           <button type="submit">Calcular</button>
         </form>
       );
     };
     
 
-export default FormTwoNumber;
+export default FormNonChange;
