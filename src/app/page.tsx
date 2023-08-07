@@ -3,6 +3,8 @@ import Image from "next/image";
 import FormTwoNumber from "./components/formTwoNumber/FormTwoNumber";
 import FromNonChange from "./components/formNonChange/FormNonChange";
 import { useState } from "react";
+import { BsSuitHeart } from "react-icons/bs";
+import { SlSocialLinkedin, SlSocialGithub } from "react-icons/sl";
 
 const Home: React.FC = () => {
   const [numbers, setNumbers] = useState<number[]>([]);
@@ -73,6 +75,19 @@ const Home: React.FC = () => {
                 : "No coin list found."
               : `The result is ${resultCoins}`}
           </p>
+        </div>
+      </div>
+      <div className="flex flex-column justify-center">
+        <div className=" p-1 ml-3 mt-1 flex">
+          Con&ensp;
+          <BsSuitHeart className="mt-1" />
+          &ensp;wellnahuel - 2023
+          <a href="https://www.linkedin.com/in/nahuelcittadino/">
+            <SlSocialLinkedin className="mr-4" />
+          </a>
+          <a href="https://github.com/wellnahuel">
+            <SlSocialGithub />
+          </a>
         </div>
       </div>
     </div>
